@@ -32,9 +32,25 @@
           </li> {% endcomment %}
         </ul>
         <ul class="d-flex">
+
+          {% if request.user.is_authenticated  %}
+          <li class = "nav-item">
             <a href = "www.google.com">
             <button class="btn btn-secondary my-2 my-sm-0" type="" onclick = "hello.com">Sign Out</button>
             </a>
+          </li>
+          {% else %}
+          <li class = "nav-item">
+            <a href = "www.google.com">
+            <button class="btn btn-secondary my-2 my-sm-0" type="" onclick = "hello.com">Sign In</button>
+            </a>
+          </li>
+          <li class = "nav-item">
+            <a href = "www.google.com">
+            <button class="btn btn-secondary my-2 my-sm-0" type="" onclick = "hello.com">Sign Up</button>
+            </a>
+          </li>
+          {% endif %}
         </ul>
       </div>
     </div>

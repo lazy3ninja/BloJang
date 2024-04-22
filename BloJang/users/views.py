@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from .forms import UserRegisterForm
+from django.contrib.auth import logout
 
 class RegisterView(View):
     def get(self, request):
@@ -16,3 +17,9 @@ class RegisterView(View):
         else:
             # Handle invalid form submission here
             return render(request, 'users/register.html', {'form': form})
+
+class CustomLogoutView(View):
+    def get(self, request):
+        logout(request)
+        return render(request, 'users/logout.html')
+
